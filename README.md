@@ -2,6 +2,35 @@
 
 This repository contains a PyTorch implementation of neural style transfer, allowing you to apply the artistic style of one image to another.
 
+## AI and Deep Learning Implementation
+
+This project utilizes AI and deep learning through neural style transfer, which combines the content of one image with the artistic style of another. Here's how it works:
+
+1. **Deep Neural Network Architecture**:
+   - Uses VGG19, a pre-trained convolutional neural network (CNN) originally trained on ImageNet
+   - VGG19 serves as a feature extractor to understand both content and style of images
+
+2. **Content and Style Representation**:
+   - **Content Representation**: Uses higher layers of VGG19 (specifically 'conv_4_2') to capture image content
+   - **Style Representation**: Uses multiple layers ('conv_1_1' through 'conv_5_1') to capture style through Gram matrices
+   - Gram matrices represent correlations between different features, capturing the artistic style
+
+3. **Optimization Process**:
+   - Uses gradient descent optimization (LBFGS optimizer)
+   - Minimizes a loss function with two components:
+     - Content loss: Measures content similarity with original image
+     - Style loss: Measures style similarity with style image
+   - Iteratively updates the generated image to minimize these losses
+
+4. **Key AI/Deep Learning Components**:
+   - Feature extraction using CNN layers
+   - Gram matrix computation for style representation
+   - Loss function optimization
+   - Backpropagation for gradient computation
+   - Transfer learning (using pre-trained VGG19)
+
+This implementation is based on the original neural style transfer paper by Gatys et al. (2016), demonstrating how deep learning can create artistic transformations by separating and recombining content and style representations.
+
 ## Setup
 
 1. Create a virtual environment (recommended):
